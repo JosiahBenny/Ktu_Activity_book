@@ -1,0 +1,47 @@
+{%extends "student.html"%}
+{%block style%}
+<style>
+   #customers {
+     font-family: Arial, Helvetica, sans-serif;
+     border-collapse: collapse;
+     width: 100%;
+   }
+   
+   #customers td, #customers th {
+     border: 1px solid #ddd;
+     padding: 8px;
+   }
+   
+   #customers tr:nth-child(even){background-color: #f2f2f2;}
+   
+   #customers tr:hover {background-color: #ddd;}
+   
+   #customers th {
+     padding-top: 12px;
+     padding-bottom: 12px;
+     text-align: left;
+     background-color: #04AA6D;
+     color: white;
+   }
+   </style>
+{%endblock%}
+{%block head%}
+<h1> All activities</h1>
+{%endblock%}
+{%block content%}
+<table id="customers">
+ <tr>
+    <th>activity name</th>
+    <th>activity points</th>
+    <th>certificate</th>
+ </tr>
+ {% for i in acts%}
+ <tr>
+ <td> {{i.act_name}} </td>
+ <td>{{i.act_points}}</td>
+ <td><a href="{{i.proof.url}}" target="_blank">{{i.id}} {{i.act_name}}</a></td>
+ </tr>
+ {%endfor%}
+
+</table>
+{%endblock%}

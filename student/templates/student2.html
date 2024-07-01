@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student | {{stud.name}}</title>
+</head>
+<style>
+    li{display:inline-block}
+</style>
+<body>
+    <h1>ktu activity book</h1>
+    <ol>
+        <li>
+            <form method="post">
+                <input name="id" type="hidden" value="{{stud.regno}}">
+                <input name="opcode" type="hidden" value="home">
+                <button type="submit">home</button>
+            </form>
+        </li>
+        <li>
+            <form method="post">
+                <input name="id" type="hidden" value="{{stud.regno}}">
+                <input name="opcode" type="hidden" value="request">
+                <button type="submit">request</button>
+            </form>
+        </li>
+        <li>
+            <form method="post">
+                <input type="hidden" name="id" value="{{stud.regno}}">
+                <input name="opcode" type="hidden" value="view">
+                <button type="submit">view activities</button>
+            </form>
+        </li>
+        <li>
+            <form method="post">
+                <input type="hidden" name="id" value="{{stud.regno}}">
+                <input name="opcode" type="hidden" value="notify">
+                <button type="submit">notification</button>
+            </form>
+        </li>
+        <li>
+            <form method="post">
+                <input type="hidden" name="id" value="{{stud.regno}}">
+                <input name="opcode" type="hidden" value="logout">
+                <button type="submit">logout</button>
+            </form>
+        </li>
+    </ol>
+    {%block content%}
+    name:  {{stud.name}}<br>
+    regno: {{stud.regno}}<br>
+    total points earned: {{stud.total_points}}<br>
+    {%endblock%}
+</body>
+</html>

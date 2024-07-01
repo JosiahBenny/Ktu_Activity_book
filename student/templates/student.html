@@ -1,0 +1,126 @@
+{%load static%}
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Student | {{stud.name}}</title>
+      <link rel="stylesheet" href="{%static 'style2.css'%}" />
+      <!-- Font Awesome Cdn Link -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+      <style>
+        .nothing{
+position:relative;
+      color: rgb(85, 83, 83);
+    font-size: 14px;
+    display: table;
+    width: 280px;
+    padding: 10px;
+background-color:white;
+text-align:left;
+        }
+        .nothing:hover{
+          background-color: #cccccc;
+        }
+      </style>
+      {%block style%}
+      {%endblock%}
+    </head>
+    <body>
+      <div class="container">
+        <nav>
+          <ul>
+            <li><a class="logo">
+              
+              <span class="nav-item">DashBoard</span>
+            </a></li>
+            <li><form method="post"><button type="submit" class="nothing">
+                <input name="id" type="hidden" value="{{stud.regno}}">
+                <input name="opcode" type="hidden" value="home">
+              <i class="fas fa-home"></i>
+              <span class="nav-item">Home</span>
+            </button></form></li>
+            <li><form method="post">
+                <input name="id" type="hidden" value="{{stud.regno}}">
+                <input name="opcode" type="hidden" value="request">
+                <button type="submit" class="nothing"><i class="fas fa-file"></i>
+                    <span class="nav-item">Upload</span></button>
+            </form></li>
+            
+            <li><form method="post">
+                <input type="hidden" name="id" value="{{stud.regno}}">
+                <input name="opcode" type="hidden" value="view">
+                <button type="submit" class="nothing"><i class="fas fa-th-list"></i>
+                    <span class="nav-item">View activities</span>
+                </button>
+            </form></li>
+
+            <li><form method="post">
+                <input type="hidden" name="id" value="{{stud.regno}}">
+                <input name="opcode" type="hidden" value="notify">
+                <button type="submit" class="nothing"><i class="fas fa-bell"></i>
+                    <span class="nav-item">Notification</span></button>
+              
+            </form></li>
+
+            <li><form method="post" class="logout" style="bottom: 60px;">
+              <input type="hidden" name="id" value="{{stud.regno}}">
+              <input name="opcode" type="hidden" value="pwd_change">
+              <button type="submit" class="nothing"><i class="fas fa-pen-square"></i>
+                  <span class="nav-item">Change password</span></button>
+            
+          </form></li>
+            
+            <li><a href="/student/" class="logout">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item">Log out</span>
+            </a></li>
+          </ul>
+        </nav>
+<section class="main">
+    <div class="main-top">
+      <h1>Student portal</h1>
+      
+    </div>
+    
+
+    <section class="main-course">
+      {%block head%}
+      <h1>Student information</h1>
+      {%endblock%}
+      <div class="course-box" style="height: auto;">
+        {%block content%}
+        <div>
+
+          <div class="box">
+            <h4>Name : {{stud.name}}</h4>
+            
+            
+            
+          </div>
+          <div class="box">
+            <h4>Admission no: {{stud.regno}}</h4>
+            
+            
+            
+          </div>
+          <div class="box">
+            <h4>Semester : {{stud.semester}}</h4>
+            
+            
+            
+          </div>
+         <div class="box">
+            <h4>Total points : {{stud.total_points}}</h4>
+            
+            
+            
+          </div>
+          
+        </div>
+        {%endblock%}
+      </div>
+    </section>
+  </section>
+</div>
+</body>
+</html>

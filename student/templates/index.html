@@ -1,0 +1,22 @@
+{%extends "student.html"%}
+{%block head%}
+<h1>Upload certificate</h1>
+{%endblock%}
+{%block content%} 
+<div>
+    <form method="post" enctype="multipart/form-data">
+        <div class="box">
+            <h4><label>Name of activity:</label><div style="display: inline-block;margin-left: 10px;"><input name="activity" type="text"></h4></div>
+        </div>
+        <div class="box">
+            <h4><label>upload file:</label>   <input name="file" type="file" accept=".pdf" style="float: right;"></h4>
+        </div class="box">
+        <input name="id" type="hidden" value="{{stud.regno}}">
+        <div class="box" style="text-align: center;">
+            <button type="submit" style="margin-top: 0px;" onclick="alert('Upload successfull')">submit</button>
+        </div>
+        
+    </form>
+</div>
+    
+    {%endblock%}
