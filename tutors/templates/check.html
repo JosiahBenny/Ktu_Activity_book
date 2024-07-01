@@ -1,0 +1,46 @@
+{%extends "tutor.html"%}
+
+{%block head%}
+<h1>Verification</h1>
+{%endblock%}
+{%block content%}
+<div class="course">
+
+<div class="box">
+    <h2>Activity info</h2>
+<table id="customers">
+    <tr>
+        <td>admission no:</td>
+        <td>{{act.std_id.regno}}</td>
+    </tr>
+    <tr>
+        <td>student name:</td>
+        <td>{{act.std_name}}</td>
+    </tr>
+    <tr>
+        <td>activity name:</td>
+        <td>{{act.act_name}}</td>
+    </tr>
+    <tr>
+        <td>certificate:</td>
+        <td><a href="{{act.proof.url}}" target="_blank">Click to view</a></td>
+    </tr>
+</table>
+</div>
+
+<div class="box">
+    <h2> activity point marking </h2>
+<form method="post">
+is the certificate valid ?<br>
+<input type="radio" name="valid" value="1">
+<label>accept</label><br>
+<input type="radio" name="valid" value="2">
+<label>reject</label><br>
+<label>activity points:</label><div style="display: inline-block;margin-left: 10px;"><input type="number" name="points"></div><br>
+<input type="hidden" name="act_id" value="{{act.id}}">
+<input type="hidden" name="id" value="{{tut.tut_id}}">
+<button type="submit">confirm</button>
+</form>
+</div>
+</div>
+{%endblock%}

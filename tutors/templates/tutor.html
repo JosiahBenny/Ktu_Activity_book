@@ -1,0 +1,109 @@
+{%load static%}
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Tutor | {{tut.name}}</title>
+      <link rel="stylesheet" href="{%static 'style2.css'%}" />
+      <!-- Font Awesome Cdn Link -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+      <style>
+        .nothing{
+position:relative;
+      color: rgb(85, 83, 83);
+    font-size: 14px;
+    display: table;
+    width: 280px;
+    padding: 10px;
+background-color:white;
+text-align:left;
+        }
+        .nothing:hover{
+          background-color: #cccccc;
+        }
+      </style>
+      {%block style%}
+      {%endblock%}
+    </head>
+    <body>
+      <div class="container">
+        <nav>
+          <ul>
+            <li><a class="logo">
+              
+              <span class="nav-item">DashBoard</span>
+            </a></li>
+            <li><form method="post"><button type="submit" class="nothing">
+                <input name="id" type="hidden" value="{{tut.tut_id}}">
+                <input name="opcode" type="hidden" value="home">
+              <i class="fas fa-home"></i>
+              <span class="nav-item">Home</span>
+            </button></form></li>
+            <li><form method="post">
+                <input name="id" type="hidden" value="{{tut.tut_id}}">
+                <input name="opcode" type="hidden" value="mark">
+                <button type="submit" class="nothing"><i class="fas fa-envelope"></i>
+                    <span class="nav-item">Recieved</span></button>
+            </form></li>
+            
+            <li><form method="post">
+                <input type="hidden" name="id" value="{{tut.tut_id}}">
+                <input name="opcode" type="hidden" value="view">
+                <button type="submit" class="nothing"><i class="fas fa-th-list"></i>
+                    <span class="nav-item">View students</span>
+                </button>
+            </form></li>
+
+            <li><form method="post" class="logout" style="bottom: 60px;">
+              <input type="hidden" name="id" value="{{tut.tut_id}}">
+              <input name="opcode" type="hidden" value="pwd_change">
+              <button type="submit" class="nothing"><i class="fas fa-pen-square"></i>
+                  <span class="nav-item">Change password</span></button>
+            
+          </form></li>
+            <li><a href="/tutor/" class="logout">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item">Log out</span>
+            </a></li>
+          </ul>
+        </nav>
+<section class="main">
+    <div class="main-top">
+      <h1>Tutor portal</h1>
+      
+    </div>
+    
+
+    <section class="main-course">
+      {%block head%}
+      <h1>Tutor information</h1>
+      {%endblock%}
+      <div class="course-box" style="height: auto;">
+        {%block content%}
+        <div>
+
+          <div class="box">
+            <h4>Name :  {{tut.name}}</h4>
+            
+            
+            
+          </div>
+          <div class="box">
+            <h4>tutor id :  {{tut.tut_id}}</h4>
+          </div>
+          
+         <div class="box">
+            <h4>Total Students :  {{tut.total_stud}}</h4>
+            
+            
+            
+          </div>
+          
+        </div>
+        {%endblock%}
+      </div>
+    </section>
+  </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{%extends "tutor.html"%}
+{%block style%}
+<style>
+   #customers {
+     font-family: Arial, Helvetica, sans-serif;
+     border-collapse: collapse;
+     width: 100%;
+   }
+   
+   #customers td, #customers th {
+     border: 1px solid #ddd;
+     padding: 8px;
+   }
+   
+   #customers tr:nth-child(even){background-color: #f2f2f2;}
+   
+   #customers tr:hover {background-color: #ddd;}
+   
+   #customers th {
+     padding-top: 12px;
+     padding-bottom: 12px;
+     text-align: left;
+     background-color: #04AA6D;
+     color: white;
+   }
+   </style>
+{%endblock%}
+{%block head%}
+<h1>Students list</h1>
+{%endblock%}
+{%block content%}
+<table id="customers">
+<tr>
+    <th>admission no:</th>
+    <th>name</th>
+    <th>total activity points</th>
+</tr>
+{%for i in stud%}
+<tr>
+    <td>{{i.regno}}</td>
+    <td>{{i.name}}</td>
+    <td>{{i.total_points}}</td>
+</tr>
+{%endfor%}
+</table>
+{%endblock%}

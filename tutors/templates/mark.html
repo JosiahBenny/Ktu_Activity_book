@@ -1,0 +1,57 @@
+{%extends "tutor.html"%}
+{%block style%}
+<style>
+   #customers {
+     font-family: Arial, Helvetica, sans-serif;
+     border-collapse: collapse;
+     width: 100%;
+   }
+   
+   #customers td, #customers th {
+     border: 1px solid #ddd;
+     padding: 8px;
+   }
+   
+   #customers tr:nth-child(even){background-color: #f2f2f2;}
+   
+   #customers tr:hover {background-color: #ddd;}
+   
+   #customers th {
+     padding-top: 12px;
+     padding-bottom: 12px;
+     text-align: left;
+     background-color: #04AA6D;
+     color: white;
+   }
+   </style>
+{%endblock%}
+{%block head%}
+<h1> Uploaded certificates to be marked</h1>
+{%endblock%}
+{%block content%}
+<table id="customers">
+    <tr>
+        <th>admission no</th>
+        <th>student name</th>
+        <th> activity id</th>
+        <th>activity name</th>
+        <th>Action</th>
+    </tr>
+    {%for i in act%}
+    <tr>
+        <td>{{i.std_id.regno}}</td>
+        <td>{{i.std_name}}</td>
+        <td>{{i.id}}</td>
+        <td>{{i.act_name}}</td>
+        <td style="text-align: center;">
+            <form method="post">
+            <input name="id" value="{{tut.tut_id}}" type="hidden">
+            <input name="activity" value="{{i.id}}" type="hidden">
+            <button type="submit" style="background-color: aqua;">check</button> 
+        </form>
+    </td>
+    </tr>
+    {%endfor%}
+</table>
+
+{%endblock%}

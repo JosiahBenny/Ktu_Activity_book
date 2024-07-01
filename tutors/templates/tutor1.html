@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tutor | {{tut.name}}</title>
+</head>
+<style>
+    li{display: inline-block;}
+</style>
+<body>
+    <h1>Ktu activity book</h1>
+    <ol>
+        <li>
+            <form  method="post">
+                <input type="hidden" name="id" value="{{tut.tut_id}}">
+                <input type="hidden" name="opcode" value="home">
+                <button type="submit">home</button>
+            </form>
+        </li>
+        <li>
+            <form  method="post">
+                <input type="hidden" name="id" value="{{tut.tut_id}}">
+                <input type="hidden" name="opcode" value="mark">
+                <button type="submit">recieved</button>
+            </form>
+        </li>
+        <li>
+            <form  method="post">
+                <input type="hidden" name="id" value="{{tut.tut_id}}">
+                <input type="hidden" name="opcode" value="view">
+                <button type="submit">view students</button>
+            </form>
+        </li>
+        <li>
+            <form  method="post">
+                <input type="hidden" name="id" value="{{tut.tut_id}}">
+                <input type="hidden" name="opcode" value="logout">
+                <button type="submit">logout</button>
+            </form>
+        </li>
+    </ol>
+    {%block content%}
+    name :{{tut.name}} <br>
+    tutor id: {{tut.tut_id}}<br>
+    total no of students: {{tut.total_stud}}
+    {%endblock%} 
+</body>
+</html>
